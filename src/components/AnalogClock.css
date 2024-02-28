@@ -1,0 +1,30 @@
+.analog-clock {
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.analog-clock-numbers {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 100%;
+}
+.analog-clock-handbase {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  inset: auto;
+}
+.analog-clock-hour,
+.analog-clock-miniute,
+.analog-clock-second {
+  position: absolute;
+  transform-origin: 0;
+  top: auto;
+  bottom: auto;
+  height: 2px;
+  transform: translateX(-50%);
+}
