@@ -1,5 +1,9 @@
+import AnalogClock from "./components/AnalogClock";
+
 function App() {
-  return <></>;
+  return <div>
+      <AnalogClock />
+    </div>;
 }
 
 export default App;
