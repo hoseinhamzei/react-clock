@@ -1,20 +1,24 @@
-import React, { FC, ReactElement, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import "./AnalogClock.css";
+import dotsBg from "./assets/dots.svg";
+import numbersBg from "./assets/numbers.svg";
 import { AnalogClockProps } from "./analogClockTypes";
 import { getClockRotation } from "./utils";
+
 const AnalogClock: FC<AnalogClockProps> = ({
   showMiniuteHand = true,
   showSecondHand = true,
   showBorder = true,
   showHandBase = true,
   smoothSeconds = false,
+  whiteNumbers = false,
   numbersType = "numbers",
   borderColor = "#000000",
-  numbersColor = "#000000",
   handBaseColor = "#000000",
   handColor = { hour: "#000000", miniute: "#000000", second: "#e74c3c" },
   handLength = { hour: "70px", miniute: "90px", second: "90px" },
   size = "200px",
+  backgroundColor = "#ffffff",
   staticDate,
 }) => {
   const [date, setDate] = useState(staticDate || new Date());
@@ -33,25 +37,6 @@ const AnalogClock: FC<AnalogClockProps> = ({
     }
   }, [staticDate, showMiniuteHand, showSecondHand]);
 
-  const numberElements: ReactElement[] = [
-    <span
-      className="analog-clock-number"
-      id="analog-clock-number-12"
-      style={{ color: numbersColor }}
-    >
-      {numbersType === "numbers" ? 12 : "."}
-    </span>,
-    ...new Array(11).fill("").map((_, index) => (
-      <span
-        className="analog-clock-number"
-        id={`analog-clock-number-${index+1}`}
-        style={{ color: numbersColor }}
-      >
-        {numbersType === "numbers" ? index + 1 : "."}
-      </span>
-    )),
-  ];
-
   return (
     <div
       className="analog-clock"
@@ -59,8 +44,12 @@ const AnalogClock: FC<AnalogClockProps> = ({
         border: showBorder ? `2px solid ${borderColor}` : "none",
         width: size,
         height: size,
+        backgroundColor: backgroundColor
       }}
     >
+      <img className="analog-clock-bg" src={numbersType === "dots" ? dotsBg : numbersBg } style={{
+        filter: whiteNumbers ? "invert(100%)" : "none"
+      }} />
       {" "}
       {showHandBase && (
         <div className="analog-clock-handbase" style={{ color: handBaseColor }}>
@@ -99,7 +88,6 @@ const AnalogClock: FC<AnalogClockProps> = ({
           transform: `rotate(${rotations.hours}deg)`,
         }}
       ></div>
-      <div className="analog-clock-numbers"> {numberElements} </div>{" "}
     </div>
   );
 };

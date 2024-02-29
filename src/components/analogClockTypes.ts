@@ -9,11 +9,12 @@ export interface AnalogClockProps {
   showBorder?: boolean;
   showHandBase?: boolean;
   smoothSeconds?: boolean;
+  whiteNumbers?: boolean;
   numbersType?: "numbers" | "dots";
   borderColor?: string;
+  backgroundColor?: string;
   handColor?: HandPropType;
   handLength?: HandPropType;
-  numbersColor?: string;
   handBaseColor?: string;
   size?: string;
   staticDate?: Date;

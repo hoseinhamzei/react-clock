@@ -5,14 +5,7 @@
   justify-content: center;
   position: relative;
 }
-.analog-clock-numbers {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  border-radius: 100%;
-}
+
 .analog-clock-handbase {
   position: absolute;
   color: rgb(0, 0, 0);
@@ -29,47 +22,12 @@
   transform-origin: left;
 }
 
-.analog-clock-number {
+.analog-clock-bg{
   position: absolute;
-  font-weight: bold;
-}
-
-#analog-clock-number-12 {
-  top: 0.5rem;
+  inset: auto;
   left: 50%;
-  transform: translateX(-50%);
-}
-
-#analog-clock-number-3 {
-  right: 0.5rem;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
 }
-
-#analog-clock-number-6 {
-  bottom: 0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-#analog-clock-number-9 {
-  left: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#analog-clock-number-1 { top: 15%; left: 80%; transform: translate(-50%, -50%); }
-
-#analog-clock-number-2 { top: 30%; left: 95%; transform: translate(-50%, -50%); }
-
-#analog-clock-number-4 { top: 70%; left: 95%; transform: translate(-50%, -50%); }
-
-#analog-clock-number-5 { top: 85%; left: 80%; transform: translate(-50%, -50%); }
-
-#analog-clock-number-7 { top: 85%; left: 20%; transform: translate(-50%, -50%); }
-
-#analog-clock-number-8 { top: 70%; left: 5%; transform: translate(-50%, -50%); }
-
-#analog-clock-number-10 { top: 30%; left: 5%; transform: translate(-50%, -50%); }
-
-#analog-clock-number-11 { top: 15%; left: 20%; transform: translate(-50%, -50%); }
