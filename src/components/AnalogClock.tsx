@@ -47,6 +47,16 @@ const AnalogClock: FC<AnalogClockProps> = ({
     return numbersType === "dots" ? dotsBg : numbersBg;
   }
 
+  function getClockStyles(){
+    return {
+      border: showBorder ? `2px solid ${borderColor}` : "none",
+      width: size,
+      height: size,
+      backgroundColor: backgroundColor,
+      borderRadius: square ? "5%" : "50%"
+    }
+  }
+
   function getHandsDynamicStyles(hand: "hour" | "minute" | "second"){
     return {
       backgroundColor: handColor[hand],
@@ -59,13 +69,7 @@ const AnalogClock: FC<AnalogClockProps> = ({
   return (
     <div
       className="analog-clock"
-      style={{
-        border: showBorder ? `2px solid ${borderColor}` : "none",
-        width: size,
-        height: size,
-        backgroundColor: backgroundColor,
-        borderRadius: square ? "5%" : "50%"
-      }}
+      style={getClockStyles()}
     >
       <img
         className="analog-clock-bg"
