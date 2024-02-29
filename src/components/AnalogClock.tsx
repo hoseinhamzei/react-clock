@@ -6,20 +6,22 @@ import { AnalogClockProps } from "./analogClockTypes";
 import { getClockRotation } from "./utils";
 
 const AnalogClock: FC<AnalogClockProps> = ({
-  showMiniuteHand = true,
+  showminuteHand = true,
   showSecondHand = true,
   showBorder = true,
   showHandBase = true,
-  smoothSeconds = false,
+  smooth = false,
   whiteNumbers = false,
+  square= false,
   numbersType = "numbers",
   borderColor = "#000000",
   handBaseColor = "#000000",
-  handColor = { hour: "#000000", miniute: "#000000", second: "#e74c3c" },
-  handLength = { hour: "70px", miniute: "90px", second: "90px" },
+  handColor = { hour: "#000000", minute: "#000000", second: "#e74c3c" },
+  handLength = { hour: "65px", minute: "90px", second: "90px" },
   size = "200px",
   backgroundColor = "#ffffff",
   staticDate,
+  customBg,
 }) => {
   const [date, setDate] = useState(staticDate || new Date());
 
@@ -29,13 +31,30 @@ const AnalogClock: FC<AnalogClockProps> = ({
     if (!staticDate) {
       const intervalTime = showSecondHand
         ? 1000
-        : showMiniuteHand
+        : showminuteHand
         ? 1000 * 60
         : 1000 * 3600;
       const interval = setInterval(() => setDate(new Date()), intervalTime);
       return () => clearInterval(interval);
     }
-  }, [staticDate, showMiniuteHand, showSecondHand]);
+  }, [staticDate, showminuteHand, showSecondHand]);
+
+  function getBackground() {
+    if (customBg) {
+      return customBg;
+    }
+
+    return numbersType === "dots" ? dotsBg : numbersBg;
+  }
+
+  function getHandsDynamicStyles(hand: "hour" | "minute" | "second"){
+    return {
+      backgroundColor: handColor[hand],
+      width: handLength[hand],
+      transform: `rotate(${rotations[hand]}deg)`,
+      transition: smooth ? "transform 0.3s ease" : "none",
+    }
+  }
 
   return (
     <div
@@ -44,13 +63,18 @@ const AnalogClock: FC<AnalogClockProps> = ({
         border: showBorder ? `2px solid ${borderColor}` : "none",
         width: size,
         height: size,
-        backgroundColor: backgroundColor
+        backgroundColor: backgroundColor,
+        borderRadius: square ? "5%" : "50%"
       }}
     >
-      <img className="analog-clock-bg" src={numbersType === "dots" ? dotsBg : numbersBg } style={{
-        filter: whiteNumbers ? "invert(100%)" : "none"
-      }} />
-      {" "}
+      <img
+        className="analog-clock-bg"
+        src={getBackground()}
+        alt="background"
+        style={{
+          filter: whiteNumbers ? "invert(100%)" : "none",
+        }}
+      />{" "}
       {showHandBase && (
         <div className="analog-clock-handbase" style={{ color: handBaseColor }}>
           ●
@@ -59,36 +83,21 @@ const AnalogClock: FC<AnalogClockProps> = ({
       {showSecondHand && (
         <div
           className="analog-clock-second"
-          style={{
-            backgroundColor: handColor.second,
-            width: handLength.second,
-            left: `50%`,
-            transform: `rotate(${rotations.seconds}deg)`,
-            transition: smoothSeconds ? "transform 0.3s ease" : "none",
-          }}
+          style={getHandsDynamicStyles("second")}
         ></div>
       )}
-      {showMiniuteHand && (
+      {showminuteHand && (
         <div
           className="analog-clock-minute"
-          style={{
-            backgroundColor: handColor.miniute,
-            width: handLength.miniute,
-            left: `50%`,
-            transform: `rotate(${rotations.minutes}deg)`,
-          }}
+          style={getHandsDynamicStyles("minute")}
         ></div>
       )}
       <div
         className="analog-clock-hour"
-        style={{
-          backgroundColor: handColor.hour,
-          width: handLength.hour,
-          left: `50%`,
-          transform: `rotate(${rotations.hours}deg)`,
-        }}
+        style={getHandsDynamicStyles("hour")}
       ></div>
     </div>
   );
 };
+
 export default AnalogClock;

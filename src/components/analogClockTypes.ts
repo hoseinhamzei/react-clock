@@ -1,15 +1,16 @@
 export interface HandPropType {
   hour: string;
-  miniute: string;
+  minute: string;
   second: string;
 }
 export interface AnalogClockProps {
   showSecondHand?: boolean;
-  showMiniuteHand?: boolean;
+  showminuteHand?: boolean;
   showBorder?: boolean;
   showHandBase?: boolean;
-  smoothSeconds?: boolean;
+  smooth?: boolean;
   whiteNumbers?: boolean;
+  square?: boolean;
   numbersType?: "numbers" | "dots";
   borderColor?: string;
   backgroundColor?: string;
@@ -18,4 +19,5 @@ export interface AnalogClockProps {
   handBaseColor?: string;
   size?: string;
   staticDate?: Date;
+  customBg?: string;
 }

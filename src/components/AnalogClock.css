@@ -1,5 +1,4 @@
 .analog-clock {
-  border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,6 +19,7 @@
   bottom: auto;
   height: 2px;
   transform-origin: left;
+  left: 50%;
 }
 
 .analog-clock-bg{
