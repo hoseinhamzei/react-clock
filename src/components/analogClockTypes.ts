@@ -5,7 +5,7 @@ export interface HandPropType {
 }
 export interface AnalogClockProps {
   showSecondHand?: boolean;
-  showminuteHand?: boolean;
+  showMinuteHand?: boolean;
   showBorder?: boolean;
   showHandBase?: boolean;
   smooth?: boolean;
