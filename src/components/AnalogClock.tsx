@@ -3,6 +3,7 @@ import "./AnalogClock.css";
 import dotsBg from "./assets/dots.svg";
 import numbersBg from "./assets/numbers.svg";
 import numbersAltBg from "./assets/numbers-alt.svg";
+import linesBg from "./assets/lines.svg";
 import { AnalogClockProps } from "./analogClockTypes";
 import { getClockRotation } from "./utils";
 import ClockHand from "./ClockHand";
@@ -71,7 +72,7 @@ const AnalogClock: FC<AnalogClockProps> = ({
     numbers: numbersBg,
     dots: dotsBg,
     numbersAndLines: numbersAltBg,
-    lines: numbersAltBg,
+    lines: linesBg,
     roman: numbersAltBg,
   };
 
@@ -84,10 +85,12 @@ const AnalogClock: FC<AnalogClockProps> = ({
     borderRadius: square ? "5%" : "50%",
   };
 
+  const fullWidthNumberTypes = ["numbersAndLines", "lines", "roman"];
+
   const bgStyle: React.CSSProperties = {
     filter: whiteNumbers ? "invert(100%)" : "none",
-    width: numbersType === "numbersAndLines" ? "100%" : "90%",
-    height: numbersType === "numbersAndLines" ? "100%" : "90%",
+    width: fullWidthNumberTypes.includes(numbersType) ? "100%" : "90%",
+    height: fullWidthNumberTypes.includes(numbersType) ? "100%" : "90%",
   };
 
   const handStyle: React.CSSProperties = {

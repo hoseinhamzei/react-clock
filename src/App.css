@@ -5,11 +5,21 @@ body {
 
 .previews-container {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .previews-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .previews-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 pre{
@@ -27,4 +37,20 @@ code{
   overflow-x: auto;
   white-space: pre;
   word-break: normal;
+}
+
+.preview{
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-title{
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h2{
+  text-transform: capitalize;
 }
