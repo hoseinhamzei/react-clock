@@ -5,15 +5,13 @@
   position: relative;
 }
 
-.analog-clock-handbase {
+.analog-clock-hand_base {
   position: absolute;
   color: rgb(0, 0, 0);
   inset: auto;
   z-index: 1;
 }
-.analog-clock-hour,
-.analog-clock-minute,
-.analog-clock-second {
+.analog-clock-hand {
   position: absolute;
   top: auto;
   bottom: auto;
@@ -28,6 +26,4 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
-  height: 90%;
 }

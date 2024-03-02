@@ -2,9 +2,10 @@ import React, { FC, useEffect, useState } from "react";
 import "./AnalogClock.css";
 import dotsBg from "./assets/dots.svg";
 import numbersBg from "./assets/numbers.svg";
+import numbersAltBg from "./assets/numbers-alt.svg";
 import { AnalogClockProps } from "./analogClockTypes";
 import { getClockRotation } from "./utils";
-
+import ClockHand from "./ClockHand";
 
 /**
  * AnalogClock component displays an analog clock with customizable options.
@@ -33,7 +34,7 @@ const AnalogClock: FC<AnalogClockProps> = ({
   smooth = false,
   whiteNumbers = false,
   square = false,
-  numbersType = "numbers",
+  numbersType = "numbersAndLines",
   borderColor = "#000000",
   handBaseColor = "#000000",
   handColor = { hour: "#000000", minute: "#000000", second: "#e74c3c" },
@@ -45,9 +46,6 @@ const AnalogClock: FC<AnalogClockProps> = ({
 }) => {
   // Define state for current date and a function to update it
   const [currentDate, setCurrentDate] = useState(staticDate || new Date());
-
-  // Calculate clock rotations based on the current date
-  const rotations = getClockRotation(currentDate);
 
   // Update the current date at regular intervals
   useEffect(() => {
@@ -65,64 +63,74 @@ const AnalogClock: FC<AnalogClockProps> = ({
     }
   }, [staticDate, showMinuteHand, showSecondHand]);
 
+  // Calculate clock rotations based on the current date
+  const rotations = getClockRotation(currentDate);
+
   // Get the background image for the clock
-  function getBackground() {
-    return customBg || (numbersType === "dots" ? dotsBg : numbersBg);
-  }
+  const backgroundImageSrc = {
+    numbers: numbersBg,
+    dots: dotsBg,
+    numbersAndLines: numbersAltBg,
+    lines: numbersAltBg,
+    roman: numbersAltBg,
+  };
 
-  // Get styles for the clock
-  function getClockStyles() {
-    return {
-      border: showBorder ? `2px solid ${borderColor}` : "none",
-      width: size,
-      height: size,
-      backgroundColor: backgroundColor,
-      borderRadius: square ? "5%" : "50%",
-    };
-  }
+  // derived styles for the clock
+  const clockStyle: React.CSSProperties = {
+    border: showBorder ? `2px solid ${borderColor}` : "none",
+    width: size,
+    height: size,
+    backgroundColor: backgroundColor,
+    borderRadius: square ? "5%" : "50%",
+  };
 
-  // Get dynamic styles for the clock hands
-  function getHandsDynamicStyles(hand: "hour" | "minute" | "second") {
-    return {
-      backgroundColor: handColor[hand],
-      width: handLength[hand],
-      transform: `rotate(${rotations[hand]}deg)`,
-      transition: smooth ? "transform 0.3s ease" : "none",
-    };
-  }
+  const bgStyle: React.CSSProperties = {
+    filter: whiteNumbers ? "invert(100%)" : "none",
+    width: numbersType === "numbersAndLines" ? "100%" : "90%",
+    height: numbersType === "numbersAndLines" ? "100%" : "90%",
+  };
 
-  // Render the AnalogClock component
+  const handStyle: React.CSSProperties = {
+    color: handBaseColor,
+  };
+
   return (
-    <div className="analog-clock" style={getClockStyles()}>
+    <div className="analog-clock" style={clockStyle}>
       <img
         className="analog-clock-bg"
-        src={getBackground()}
+        src={customBg || backgroundImageSrc[numbersType]}
         alt="background"
-        style={{
-          filter: whiteNumbers ? "invert(100%)" : "none",
-        }}
-      />{" "}
+        style={bgStyle}
+      />
+
       {showHandBase && (
-        <div className="analog-clock-handbase" style={{ color: handBaseColor }}>
+        <div className="analog-clock-hand_base" style={handStyle}>
           ●
         </div>
       )}
-      {showSecondHand && (
-        <div
-          className="analog-clock-second"
-          style={getHandsDynamicStyles("second")}
-        ></div>
-      )}
-      {showMinuteHand && (
-        <div
-          className="analog-clock-minute"
-          style={getHandsDynamicStyles("minute")}
-        ></div>
-      )}
-      <div
-        className="analog-clock-hour"
-        style={getHandsDynamicStyles("hour")}
-      ></div>
+
+      <ClockHand
+        rotation={rotations.second}
+        color={handColor.second}
+        length={handLength.second}
+        smooth={smooth}
+        visible={showSecondHand}
+      />
+
+      <ClockHand
+        rotation={rotations.minute}
+        color={handColor.minute}
+        length={handLength.minute}
+        smooth={smooth}
+        visible={showMinuteHand}
+      />
+
+      <ClockHand
+        rotation={rotations.hour}
+        color={handColor.hour}
+        length={handLength.hour}
+        smooth={smooth}
+      />
     </div>
   );
 };

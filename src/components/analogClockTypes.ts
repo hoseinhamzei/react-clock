@@ -11,7 +11,7 @@ export interface AnalogClockProps {
   smooth?: boolean;
   whiteNumbers?: boolean;
   square?: boolean;
-  numbersType?: "numbers" | "dots";
+  numbersType?: "numbers" | "dots" | "numbersAndLines" | "lines" | "roman";
   borderColor?: string;
   backgroundColor?: string;
   handColor?: HandPropType;
@@ -20,4 +20,12 @@ export interface AnalogClockProps {
   size?: string;
   staticDate?: Date;
   customBg?: string;
+}
+
+export interface ClockHandProps {
+  rotation: number;
+  color: string;
+  length: string;
+  visible?: boolean;
+  smooth?: boolean;
 }
