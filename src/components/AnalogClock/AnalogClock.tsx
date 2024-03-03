@@ -40,6 +40,7 @@ const AnalogClock: FC<AnalogClockProps> = ({
   handBaseColor = "#000000",
   handColor = { hour: "#000000", minute: "#000000", second: "#e74c3c" },
   handLength = { hour: "65px", minute: "90px", second: "90px" },
+  handThickness = { hour: "2px", minute: "2px", second: "2px" },
   size = "200px",
   backgroundColor = "#ffffff",
   staticDate,
@@ -89,8 +90,8 @@ const AnalogClock: FC<AnalogClockProps> = ({
 
   const bgStyle: React.CSSProperties = {
     filter: whiteNumbers ? "invert(100%)" : "none",
-    width: fullWidthNumberTypes.includes(numbersType) ? "100%" : "90%",
-    height: fullWidthNumberTypes.includes(numbersType) ? "100%" : "90%",
+    width: fullWidthNumberTypes.includes(numbersType) || customBg ? "100%" : "90%",
+    height: fullWidthNumberTypes.includes(numbersType) || customBg ? "100%" : "90%",
   };
 
   const handStyle: React.CSSProperties = {
@@ -118,6 +119,7 @@ const AnalogClock: FC<AnalogClockProps> = ({
         length={handLength.second}
         smooth={smooth}
         visible={showSecondHand}
+        thickness={handThickness.second}
       />
 
       <ClockHand
@@ -126,12 +128,14 @@ const AnalogClock: FC<AnalogClockProps> = ({
         length={handLength.minute}
         smooth={smooth}
         visible={showMinuteHand}
+        thickness={handThickness.minute}
       />
 
       <ClockHand
         rotation={rotations.hour}
         color={handColor.hour}
         length={handLength.hour}
+        thickness={handThickness.hour}
         smooth={smooth}
       />
     </div>

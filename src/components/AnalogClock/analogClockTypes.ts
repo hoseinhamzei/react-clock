@@ -16,6 +16,7 @@ export interface AnalogClockProps {
   backgroundColor?: string;
   handColor?: HandPropType;
   handLength?: HandPropType;
+  handThickness?: HandPropType;
   handBaseColor?: string;
   size?: string;
   staticDate?: Date;
@@ -26,6 +27,7 @@ export interface ClockHandProps {
   rotation: number;
   color: string;
   length: string;
+  thickness: string;
   visible?: boolean;
   smooth?: boolean;
 }

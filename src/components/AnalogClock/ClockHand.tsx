@@ -15,6 +15,7 @@ const ClockHand: React.FC<ClockHandProps> = ({
   length,
   visible = true,
   smooth = false,
+  thickness
 }) => {
   /**
    * Style for the clock hand
@@ -24,6 +25,7 @@ const ClockHand: React.FC<ClockHandProps> = ({
     width: length,
     transform: `rotate(${rotation}deg)`,
     transition: smooth ? "transform 0.3s ease" : "none",
+    height: thickness
   };
 
   return visible ? (

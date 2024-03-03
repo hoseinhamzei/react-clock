@@ -30,6 +30,7 @@ pre{
   margin-bottom: 1rem;
   white-space: pre-wrap;
   word-break: break-word;
+  max-width: 500px;
 }
 
 code{
