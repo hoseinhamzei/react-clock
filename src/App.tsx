@@ -105,6 +105,7 @@ function App() {
         <div className="preview">
           <h2>Roman face with custom hands:</h2>
           <AnalogClock
+            showBorder={false}
             numbersType="roman"
             handLength={{
               hour: "40px",

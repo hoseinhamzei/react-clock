@@ -4,6 +4,7 @@ import dotsBg from "./assets/dots.svg";
 import numbersBg from "./assets/numbers.svg";
 import numbersAltBg from "./assets/numbers-alt.svg";
 import linesBg from "./assets/lines.svg";
+import romanBg from "./assets/roman.svg";
 import { AnalogClockProps } from "./analogClockTypes";
 import { getClockRotation } from "./utils";
 import ClockHand from "./ClockHand";
@@ -74,7 +75,7 @@ const AnalogClock: FC<AnalogClockProps> = ({
     dots: dotsBg,
     numbersAndLines: numbersAltBg,
     lines: linesBg,
-    roman: numbersAltBg,
+    roman: romanBg,
   };
 
   // derived styles for the clock
