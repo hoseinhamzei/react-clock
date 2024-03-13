@@ -1,8 +1,15 @@
 {
   "name": "@hoseinh/react-analog-clock",
   "private": false,
-  "version": "0.2.0",
-  "type": "module",
+  "version": "0.4.0",
+  "module": "./lib/esm/index.js",
+  "main": "./lib/cjs/index.js",
+  "files": [
+    "lib/"
+  ],
+  "author": "hoseinhamzei",
+  "license": "MIT",
+  "repository": "hoseinhamzei/react-clock",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
