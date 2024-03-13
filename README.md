@@ -5,6 +5,7 @@
 ![NPM License](https://img.shields.io/npm/l/%40hoseinh%2Freact-analog-clock)
 
 ![](https://www.hoseinh.com/wp-content/uploads/2024/03/1.jpg)
+
 React Analog Clock is a customizable React component that displays an analog clock with various options for customization.
 
 Check out the [online demo](https://hoseinh.com/demos/analog-clock) For Examples.
