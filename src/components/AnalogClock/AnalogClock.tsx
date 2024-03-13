@@ -28,7 +28,7 @@ import ClockHand from "./ClockHand";
  * @param {Date} staticDate - Static date to display on the clock which will disable clock's auto-update
  * @param {string} customBg - Custom background image for the clock which will replace the default svg backgrounds
  */
-const AnalogClock: FC<AnalogClockProps> = ({
+export const AnalogClock: FC<AnalogClockProps> = ({
   showMinuteHand = true,
   showSecondHand = true,
   showBorder = true,
@@ -142,5 +142,3 @@ const AnalogClock: FC<AnalogClockProps> = ({
     </div>
   );
 };
-
-export default AnalogClock;

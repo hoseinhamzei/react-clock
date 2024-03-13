@@ -1,0 +1,28 @@
+.analog-clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.analog-clock-hand_base {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  inset: auto;
+  z-index: 1;
+}
+.analog-clock-hand {
+  position: absolute;
+  top: auto;
+  bottom: auto;
+  transform-origin: left;
+  left: 50%;
+}
+
+.analog-clock-bg{
+  position: absolute;
+  inset: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
