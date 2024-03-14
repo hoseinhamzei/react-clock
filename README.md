@@ -8,7 +8,7 @@
 
 React Analog Clock is a customizable React component that displays an analog clock with various options for customization.
 
-Check out the [online demo](https://react-clock.hoseinh.com) For Examples.
+Check out the [online demo](http://react-clock.hoseinh.com) For Examples.
 
 ## Installation
 

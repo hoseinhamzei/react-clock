@@ -1,7 +1,7 @@
 {
   "name": "@hoseinh/react-analog-clock",
   "private": false,
-  "version": "0.5.0",
+  "version": "0.6.0",
   "module": "./lib/esm/index.js",
   "main": "./lib/cjs/index.js",
   "files": [
