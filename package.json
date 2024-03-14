@@ -1,7 +1,7 @@
 {
   "name": "@hoseinh/react-analog-clock",
   "private": false,
-  "version": "0.6.0",
+  "version": "1.0.1",
   "module": "./lib/esm/index.js",
   "main": "./lib/cjs/index.js",
   "files": [
@@ -10,6 +10,8 @@
   "author": "hoseinhamzei",
   "license": "MIT",
   "repository": "hoseinhamzei/react-clock",
+  "keywords": ["react", "react-component", "clock", "react-clock"],
+  "description": "A customizable React component that displays an analog clock with various options for customization.",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
