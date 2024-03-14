@@ -1,7 +1,7 @@
 
 # React Analog Clock Component
 
-![NPM Downloads](https://img.shields.io/npm/dt/%40angular%2Freact-analog-clock)
+![NPM Downloads](https://img.shields.io/npm/dt/%40hoseinh%2Freact-analog-clock)
 ![NPM License](https://img.shields.io/npm/l/%40hoseinh%2Freact-analog-clock)
 
 ![](https://www.hoseinh.com/wp-content/uploads/2024/03/1.jpg)
