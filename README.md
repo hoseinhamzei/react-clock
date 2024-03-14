@@ -51,6 +51,20 @@ const MyClock = () => {
 export default MyClock;
 ```
 
+You can show a static time and disable the clock's auto update by passing a "staticDate" Date object:
+
+```javascript
+.
+.
+.
+    <AnalogClock
+      staticDate={new Date(2024, 1, 1, 13, 0)}
+    />
+.
+.
+.
+```
+
 ## Props
 
 | Prop              | Description                                                        | Options                                    | Default Value  |
