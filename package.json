@@ -10,7 +10,12 @@
   "author": "hoseinhamzei",
   "license": "MIT",
   "repository": "hoseinhamzei/react-clock",
-  "keywords": ["react", "react-component", "clock", "react-clock"],
+  "keywords": [
+    "react",
+    "react-component",
+    "clock",
+    "react-clock"
+  ],
   "description": "A customizable React component that displays an analog clock with various options for customization.",
   "homepage": "https://react-clock.hoseinh.com",
   "scripts": {
@@ -21,13 +26,17 @@
     "clean": "rimraf lib",
     "copy-files": "copyfiles -e **/*.ts -e **/*.tsx -u l src/**/*.css lib/esm/src",
     "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
-    "prepare": "npm run tsc"
+    "prepare": "npm run tsc",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^15.0.6",
+    "@types/jest": "^29.5.12",
     "@types/react": "^18.2.59",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
@@ -36,7 +45,10 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "typescript": "^5.2.2",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
     "vite": "^5.1.4"
   }
 }
