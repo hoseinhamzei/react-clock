@@ -30,8 +30,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "identity-obj-proxy": "^3.0.0",
-    "jest-environment-jsdom": "^29.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -51,6 +49,8 @@
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-environment-jsdom": "^29.7.0",
   }
 }
